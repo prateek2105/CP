@@ -11,6 +11,7 @@ struct SegTree {
       return a+b; // type of operation
     }
     long long merge(long long a, long long b) {
+        
         return opn(a, b);
     }
 
