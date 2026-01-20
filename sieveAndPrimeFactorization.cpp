@@ -5,6 +5,7 @@ using namespace std;
 
 const int N=1e7+1;
 
+
 vector<int> dp(N+1,1);
 vector<int> primes;
 
