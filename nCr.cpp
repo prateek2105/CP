@@ -5,7 +5,8 @@ using namespace std;
 #define fastio() ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 
 using namespace std; 
-  
+
+
 const int N = (int)1e6+10;
  
 ll factorialNumInverse[N + 1];
