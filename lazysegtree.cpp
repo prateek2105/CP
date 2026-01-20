@@ -1,6 +1,7 @@
 
 template<typename Node, typename Update>
 struct LazySGT {
+
     vector<Node> tree;
     vector<bool> lazy;
     vector<Update> updates;
