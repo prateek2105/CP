@@ -3,7 +3,7 @@ using namespace std;
 
 const int N = 1e5+10;
 vector<int> par(N);
-vector<int> sz(N);
+vector<int> sz(N); 
 
 void make_set(int v){
     par[v] = v;
