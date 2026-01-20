@@ -10,6 +10,7 @@ int bfs(int start, int n,vector<int> &dist,vector<int> g[],vector<int> &parent) 
     q.push(start);
 
     while (!q.empty()) {
+        
         int node = q.front();
         q.pop();
         
