@@ -1,0 +1,72 @@
+struct Node{
+    Node *link[2];
+    int subtree;
+ 
+    Node() {
+        subtree = 0;
+        link[0] = link[1] = NULL;
+    }
+ 
+    bool containsKey(int ind){
+        return (link[ind] != NULL);
+    }
+ 
+    Node* get(int ind){
+        return link[ind];
+    }
+ 
+    void put(int ind, Node* val){
+        link[ind] = val;
+    }
+};
+ 
+class Trie {
+private:
+    Node *root;
+ 
+public: 
+    Trie() {
+        root = new Node();
+    }
+ 
+    void insert(int num){
+        Node *node = root;
+        for (int i = 30; i >= 0; i--) {
+            int bit = (num >> i) & 1;
+            if (!node->containsKey(bit)) {
+                node->put(bit, new Node());
+            }
+            node = node->get(bit);
+            node->subtree++;
+        }
+    }
+ 
+    void erase(int num){
+        Node *node = root;
+        for (int i = 30; i >= 0; i--) {
+            int bit = (num >> i) & 1;
+            node = node->get(bit);
+            node->subtree--;
+            // if (node->subtree == 0) {
+            //     delete node;
+            //     node = NULL;
+            //     break;
+            // }
+        }
+    }
+ 
+    int findMax(int num) {
+        Node *node = root;
+        int maxNum = 0;
+        for (int i = 30; i >= 0; i--) {
+            int bit = (num >> i) & 1;
+            if (node->containsKey(!bit) && node->get(!bit)->subtree > 0) {
+                maxNum |= (1LL << i);
+                node = node->get(!bit);
+            } else {
+                node = node->get(bit);
+            }
+        }
+        return maxNum;
+    }
+};
